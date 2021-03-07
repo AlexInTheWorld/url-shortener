@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <title>URL Shortener</title>
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+      <link href="/public/style.css" rel="stylesheet" type="text/css">
+   </head>
+   <body>
+
+<div class="table table-sm">
+  <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"><span>original url</span></th>
+      <th scope="col"><span>shortened to</span></th>
+      <th scope="col"><span>result</span></th>
+    </tr>
+  </thead>
+    <tbody>
+  <% for (let i = 0; i < user.original.length; i++) { %>
+    <tr class="table-info">
+      <% if (user.original[i].length >= 100){ %>
+        <td scope="row"><%= user.original[i].substring(100) %></td>
+      <% } else { %>
+        <td scope="row"><%= user.original[i] %></td>
+      <% } %>
+      <th scope="row"><%= user.short[i] %></th>
+      <td scope="row"><%= `make-url-short.glitch.me/api/shorturl/${user.short[i]}` %></td>
+    </tr>  
+  <% } %>
+    </tbody>
+  </table>
+</div>
+     
+  </body>
+</html>
